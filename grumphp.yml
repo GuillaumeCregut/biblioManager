@@ -2,6 +2,16 @@ grumphp:
   tasks:
     phpstan:
       configuration: phpstan.dist.neon
+    phpcsfixer: 
+      allow_risky: ~
+      cache_file: ~
+      config: ~
+      rules: []
+      using_cache: ~
+      config_contains_finder: true
+      verbose: true
+      diff: false
+      triggered_by: ['php']
     git_commit_message:
       matchers:
         must Follow: /^\[(Refacto|Fix|Style|Chore|Feat|Doc|Test)\]:\s[\s\S]+:\s[\s\S]+/

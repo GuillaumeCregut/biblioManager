@@ -97,6 +97,7 @@
         }
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.54",
         "phpro/grumphp": "^2.5",
         "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^9.5",
