@@ -12,6 +12,8 @@ grumphp:
       verbose: true
       diff: false
       triggered_by: ['php']
+    phpunit:
+      config_file: phpunit.xml
     git_commit_message:
       matchers:
         must Follow: /^\[(Refacto|Fix|Style|Chore|Feat|Doc|Test)\]:\s[\s\S]+:\s[\s\S]+/
