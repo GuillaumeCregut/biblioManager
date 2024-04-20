@@ -1,3 +1,31 @@
-body {
-    background-color: skyblue;
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik+Wet+Paint&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* colors */
+    --background-color: #C3B796;
+    --second-color: #96a2c3;
+    --main-color: #96C3A1;
+
+    /* fonts */
+    --primary-font: "Courier Prime", monospace;
+    --title-font: "Nunito", sans-serif;
+
+    /* Nav menu */
+    --top-burger: 20px;
+    --logo-width: 60px;
+    --logo-mini: 30px;
+}
+
+.body {
+    background-color: var(--background-color);
+}
+
+h1 {
+    font-family: var(--title-font);
 }
