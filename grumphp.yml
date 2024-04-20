@@ -1,7 +1,7 @@
 grumphp:
   tasks:
     phpcs:
-      standard: .phpcs.xml.dist
+      standard: ./phpcs.xml.dist
     phpstan:
       configuration: phpstan.dist.neon
     phpunit:
