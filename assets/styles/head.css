@@ -1,0 +1,28 @@
+.head {
+    background-color: var(--second-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: var(--logo-width);
+    height: auto;
+    padding: 5px;
+}
+
+.head-title {
+    text-align: center;
+    width: calc(100% - var(--logo-width));
+    font-family: var(--primary-font);
+    font-size: 64px;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        width: var(--logo-mini);
+    }
+
+    .head-title {
+        font-size: 20px;
+    }
+}
