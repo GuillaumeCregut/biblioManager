@@ -37,3 +37,7 @@ phpstan.neon
 /.phpcs-cache
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
+
+
+notes.txt
+portrait.jpg

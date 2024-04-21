@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Acceuil
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/home.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div class="home-container">
+		<div class="welcome">
+			<h1>Bienvenue sur notre site de gestion de  bibliothèque</h1>
+			<p class="header-text">Optimisez votre bibliothèque avec notre solution efficiente. Gérer l’inventaire de vos livres, afin de pouvoir toujours mettre la main dessus.</p>
+		</div>
+		<div class="picture-welcome-container">
+			<img src="{{ asset('images/biblio.jpg') }}" alt="Library with books" class="picture-welcome">
+		</div>
+	</div>
+
+{% endblock %}
