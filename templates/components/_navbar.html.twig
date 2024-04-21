@@ -1,0 +1,31 @@
+<nav class="nav-menu">
+	<div class="navlink-container">
+		<input type="checkbox" class="toggle-btn">
+		<div class="burger-menu"></div>
+		<ul class="menu">
+			<li class="link_item">
+				<a class="link {% if app.request.attributes.get('_route')=='home' %}active-link{%endif%}" href="">Accueil</a>
+			</li>
+			<li class="link_item {% if app.request.attributes.get('_route')=='search_index' %}active-link{%endif%}">
+				<a class="link" href="">Rechercher</a>
+			</li>
+			<li class="link_item">
+				<a class="link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{%endif%}" href="">Admin</a>
+			</li>
+		</ul>
+	</div>
+
+	<ul class="user-menu">
+		<li class="link_item-user">
+			<a class="link-user" href="">Logout</a>
+		</li>
+		<li class="link_item-user">
+			<a class="link-user" href="">Nom Prénom</a>
+		</li>
+		<li class="link_item-user avatar-li">
+			<div class="avatar">
+				<img src="{{ asset('images/portrait.jpg') }}" alt="" class="avatar-picture">
+			</div>
+		</li>
+	</ul>
+</nav>
