@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Rubik+Wet+Paint&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Rubik+Wet+Paint&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -29,4 +30,37 @@
 
 h1 {
     font-family: var(--title-font);
+}
+
+.btn {
+    display: inline-block;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    border-style: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    border-color: #0b5ed7;
+    background-color: #0b5ed7;
+    color : white;
+}
+
+.alert {
+    text-align: center;
+    padding: 3px 5px;
+    margin: 10px auto;
+}
+
+.alert-danger {
+    color: white;
+    background-color: red;
+
 }
