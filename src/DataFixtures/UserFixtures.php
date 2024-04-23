@@ -28,6 +28,7 @@ class UserFixtures extends Fixture
             ->setAdmin(true);
         $password = $this->hasher->hashPassword($user, 'MUSTANG');
         $user->setPassword($password);
+        $this->addReference('user_5', $user);
         $manager->persist($user);
         for ($i = 0; $i < 5; $i++) {
             $user = new User();
@@ -39,6 +40,7 @@ class UserFixtures extends Fixture
             $password = $this->hasher->hashPassword($user, '123456');
             $user->setPassword($password);
             $manager->persist($user);
+            $this->addReference('user_' . $i, $user);
         }
         $manager->flush();
     }

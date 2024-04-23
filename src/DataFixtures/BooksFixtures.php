@@ -33,6 +33,7 @@ class BooksFixtures extends Fixture implements DependentFixtureInterface
             $book->setPosition($this->getReference('shelf_' . rand(0, 29)));
             $book->setTheme($this->getReference('theme_' . rand(0, 9)));
             $manager->persist($book);
+            $this->addReference('book_' . $i, $book);
         }
         $manager->flush();
     }
