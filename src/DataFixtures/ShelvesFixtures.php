@@ -19,6 +19,7 @@ class ShelvesFixtures extends Fixture implements DependentFixtureInterface
             $ref = $this->getReference($libraryRef);
             $shelf->setLibrary($ref);
             $manager->persist($shelf);
+            $this->addReference('shelf_' . $i, $shelf);
         }
 
         $manager->flush();

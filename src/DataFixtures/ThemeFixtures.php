@@ -16,6 +16,7 @@ class ThemeFixtures extends Fixture
             $theme = new Theme();
             $theme->setName($faker->word());
             $manager->persist($theme);
+            $this->addReference('theme_' . $i, $theme);
         }
 
         $manager->flush();

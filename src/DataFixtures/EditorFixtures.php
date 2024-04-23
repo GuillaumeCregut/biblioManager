@@ -16,6 +16,7 @@ class EditorFixtures extends Fixture
             $editor = new Editor();
             $editor->setName($faker->company());
             $manager->persist($editor);
+            $this->addReference('editor_' . $i, $editor);
         }
         $manager->flush();
     }
