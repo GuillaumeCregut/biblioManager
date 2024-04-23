@@ -44,6 +44,10 @@ class Book
     #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'book')]
     private Collection $comments;
 
+    #[ORM\ManyToOne(inversedBy: 'books')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Theme $theme = null;
+
     public function __construct()
     {
         $this->Author = new ArrayCollection();
@@ -165,6 +169,18 @@ class Book
                 $comment->setBook(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTheme(): ?Theme
+    {
+        return $this->theme;
+    }
+
+    public function setTheme(?Theme $theme): static
+    {
+        $this->theme = $theme;
 
         return $this;
     }
