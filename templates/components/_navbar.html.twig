@@ -9,9 +9,11 @@
 			<li class="link_item">
 				<a class="link  {% if app.request.attributes.get('_route')=='search_index' %}active-link{%endif%}" href="">Rechercher</a>
 			</li>
+			{% if app.user.admin%}
 			<li class="link_item">
 				<a class="link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{%endif%}" href="">Admin</a>
 			</li>
+			{% endif %}
 		</ul>
 	</div>
 
@@ -25,18 +27,18 @@
 		</li>
 		{% if app.user %}
 			<li class="link_item-user">
-				<a class="link-user" href="">Nom Prénom</a>
+				<a class="link-user" href="">{{app.user.firstname}} {{app.user.lastname}}</a>
 			</li>
 			<li class="link_item-user avatar-li">
 
 				<div class="avatar">
-					<img src="{{ asset('images/blank-profil.png') }}" alt="" class="avatar-picture">
+					<img src="{% if app.user.avatar is not null %}""{% else %}{{ asset('images/blank-profil.png') }}{% endif %}" alt="" class="avatar-picture">
 				</div>
 			</li>
 		</li>
 	{% else %}
 		<li class="link_item-user">
-			<a class="link" href="">Créer un compte</a>
+			<a class="link {% if app.request.attributes.get('_route')=='app_register' %}active-link{%endif%}" href="{{ path('app_register')}}">Créer un compte</a>
 		</li>
 	{% endif %}
 </ul></nav>
