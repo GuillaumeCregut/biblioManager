@@ -15,6 +15,7 @@ class LibraryFixtures extends Fixture
             $library = new Library();
             $library->setName('Armoire #' . $i);
             $manager->persist($library);
+            $this->addReference('library_Armoire' . $i, $library);
         }
 
         $manager->flush();
