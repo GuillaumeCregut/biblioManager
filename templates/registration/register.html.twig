@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- S'enregistrer
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/signin.css') }}">
+{% endblock %}
+{% block body %}
+	<h1>S'enregistrer</h1>
+
+	{{ form_errors(registrationForm) }}
+	<div class="container">
+		{{ form_start(registrationForm) }}
+		<div class="form-container">
+			{{ form_row(registrationForm.login) }}
+			{{ form_row(registrationForm.firstname) }}
+			{{ form_row(registrationForm.lastname) }}
+			{{ form_row(registrationForm.plainPassword, {
+            label: 'Mot de passe'
+        }) }}
+			<button type="submit" class="btn btn-primary">S'enregistrer</button>
+		</div>
+		{{ form_end(registrationForm) }}
+	</div>
+{% endblock %}
