@@ -41,3 +41,5 @@ phpstan.neon
 
 notes.txt
 portrait.jpg
+/avatars/*
+!/avatars/avatar.png

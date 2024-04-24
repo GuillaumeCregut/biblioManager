@@ -32,7 +32,7 @@
 			<li class="link_item-user avatar-li">
 
 				<div class="avatar">
-					<img src="{% if app.user.avatar is not null %}""{% else %}{{ asset('images/blank-profil.png') }}{% endif %}" alt="" class="avatar-picture">
+					<img src={{ path('picture_avatar')}} alt="avatar" class="avatar-picture">
 				</div>
 			</li>
 		</li>
