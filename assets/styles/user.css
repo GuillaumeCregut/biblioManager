@@ -1,0 +1,38 @@
+h1 {
+    text-align: center;
+}
+
+.form-control {
+    margin: 5px 0 5px 3px;
+}
+
+.edit-avatar-container {
+    max-width: fit-content;
+    position : relative;
+    margin: 5px 0 5px 10px;
+}
+
+.edit-avatar-image {
+    width: 100px;
+    height: auto;
+}
+
+.avatar-field {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.error-field {
+    margin: 5px;
+    padding: 5px;
+    border: solid 1px red;
+    max-width: max-content;
+}
+
+.error-field ul {
+    color :red;
+}
