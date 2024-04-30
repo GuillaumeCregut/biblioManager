@@ -2,8 +2,16 @@ h1 {
     text-align: center;
 }
 
-.form-control {
-    margin: 5px 0 5px 3px;
+.user-container {
+    margin-left: 5px;
+}
+
+.infos-container {
+    font-family: var(--primary-font);
+}
+
+.user-info {
+    font-family: var(--title-font);
 }
 
 .edit-avatar-container {
@@ -35,4 +43,17 @@ h1 {
 
 .error-field ul {
     color :red;
+}
+
+.pass-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    .pass-main-container {
+        font-size: 0.8rem;
+    }
 }
