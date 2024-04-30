@@ -13,9 +13,7 @@ h1 {
     flex-direction: column;
     gap: 1vw;
 }
-.form-control {
-    margin-left: 5px;
-}
+
 
 .btn-primary {
     margin-top: 5px;
