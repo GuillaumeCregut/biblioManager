@@ -1,0 +1,19 @@
+.comment-container {
+    font-family: var(--primary-font);
+    margin: 2rem 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.line {
+    margin: 0.3rem 0;
+}
+
+.comment-data {
+    font-family: var(--title-font);
+    display: inline-block;
+}
+
+.comment-content {
+    padding-left: 1rem;
+}
