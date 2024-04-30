@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\PassType;
 use App\Form\UserType;
 use App\Services\PictureConvert;
 use Doctrine\ORM\EntityManagerInterface;
@@ -63,6 +64,48 @@ class UserController extends AbstractController
             }
         }
         return $this->render('user/edit.html.twig', [
+            'form' => $form
+        ]);
+    }
+
+    #[Route('/password', name: 'password')]
+    public function editPassword(
+        Request $request,
+        UserPasswordHasherInterface $passwordHasher,
+        EntityManagerInterface $em
+    ): Response {
+        $form = $this->createForm(PassType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $datas = $form->getData();
+            if ($datas['new_password'] !== $datas['confirm_password']) {
+                $field = $form->get('confirm_password');
+                $field->addError(new FormError('Les mots de passe ne sont pas identiques'));
+            } else {
+                /**
+                 * @var User $user
+                 */
+                $user = $this->getUser();
+                $checkPassword = $datas['old_password'];
+                $verify = $passwordHasher->isPasswordValid($user, $checkPassword);
+                if ($verify) {
+                    $user->setPassword(
+                        $passwordHasher->hashPassword(
+                            $user,
+                            $datas['new_password']
+                        )
+                    );
+                    $em->persist($user);
+                    $em->flush();
+                    $this->addFlash('success', 'Modifications effectuées');
+                    return $this->redirectToRoute('user_index');
+                } else {
+                    $field = $form->get('old_password');
+                    $field->addError(new FormError('Mot de passe incorrect'));
+                }
+            }
+        }
+        return $this->render('user/editPassword.html.twig', [
             'form' => $form
         ]);
     }
