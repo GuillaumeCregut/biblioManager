@@ -27,7 +27,7 @@
 		</li>
 		{% if app.user %}
 			<li class="link_item-user">
-				<a class="link-user" href="">{{app.user.firstname}} {{app.user.lastname}}</a>
+				<a class="link-user" href="{{ path('user_index') }}">{{app.user.firstname}} {{app.user.lastname}}</a>
 			</li>
 			<li class="link_item-user avatar-li">
 

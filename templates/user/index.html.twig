@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{ parent() }} - Mon  profil
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/user.css') }}">
+	<link rel="stylesheet" href="{{ asset('styles/comment-user.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="user-container">
+    <h1>Mes informations</h1>
+    {% for message in app.flashes('success') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+<div class="infos-container">
+<p class="info-line">login : <span class="user-info">{{app.user.login}}</span></p>
+<p class="info-line">Nom : <span class="user-info">{{app.user.lastname}}</span></p>
+<p class="info-line">Prénom : <span class="user-info">{{app.user.firstname}}</span></p>
+<p class="info-line">Mon avatar :</p>
+<img src="{{ path('picture_avatar') }}" alt="avatar" class="avatar-user">
+</div>
+<a href="{{ path('user_edit') }}" class="btn btn-primary">Modifier mon profil</a>
+<a href="{{ path('user_password')}}" class="btn btn-primary">Modifier mon mot de passe</a>
+</div>
+<div class="comments">
+<h2>Les commentaires que j'ai laissé</h2>
+{% for comment in app.user.comments%}
+{% include('components/_userComment.html.twig') with {'id': comment.id, 'comment':comment.comment, 'book': comment.book.title} %}
+{# <p>{{comment.id}} - {{ comment.comment }} - {{comment.book.title}}</p> #}
+{% endfor %}
+</div>
+{% endblock %}

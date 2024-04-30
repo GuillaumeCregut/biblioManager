@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Mon  profil
+{% endblock %}
+{% block javascripts %}
+{{ parent() }}
+    <script src="{{asset('scripts/user.js')}}" defer></script>
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/user.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div class="user-container">
+		<h1>Mes informations</h1>
+		{{ form_start(form) }}
+		{{ form_row(form.firstname) }}
+		{{ form_row(form.lastname) }}
+		<p>Avatar (taille maximum 500ko)</p>
+		<div class="edit-avatar-container">
+
+			<img src="{{ path('picture_avatar') }}" alt="avatar" class="edit-avatar-image" id="avatar-img">
+
+			{{ form_widget(form.avatarUpload, {'attr': {'class': 'avatar-field'}}) }}
+		</div>
+		{% if form_errors(form.avatarUpload) %}
+			<div class="error-field">
+				{{ form_errors(form.avatarUpload) }}</div>
+		{% endif %}
+		<div {% if form_errors(form.checkPassword)|length >0 %} class="error-field" {% endif %}>
+			<label for="{{ form.checkPassword.vars.id }}">{{ form.checkPassword.vars.label }}</label>
+			{{ form_widget(form.checkPassword) }}
+			{{form_errors(form.checkPassword)}}
+		</div>
+		<input type="submit" value="Modifier" class="btn btn-primary">
+		{{ form_end(form) }}
+
+	</div>
+{% endblock %}
