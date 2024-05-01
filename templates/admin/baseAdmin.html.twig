@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block javascripts %}
+	{{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{asset('styles/admin/admin.css') }}">
+{% endblock %}
+{% block title %}
+	{{ parent() }}
+	- Admin
+{% endblock %}
+
+{% block body %}
+	<div class="admin-container">
+		<div class="left-menu">
+			<nav class="admin-menu">
+				<ul class="admin-list">
+					<li class="admin-item">
+						<a href="{{path('library_index')}}" class="admin-link  {% if app.request.attributes.get('_route')=='library_index' %}active-link{% endif %}">Bibliothèques</a>
+					</li>
+					<li class="admin-item">
+						<a href="" class="admin-link  {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Etagères</a>
+					</li>
+					<li class="admin-item">
+						<a href="" class="admin-link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Auteurs</a>
+					</li>
+					<li class="admin-item">
+						<a href="" class="admin-link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Editeurs</a>
+					</li>
+					<li class="admin-item">
+						<a href="" class="admin-link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Thèmes</a>
+					</li>
+					<li class="admin-item">
+						<a href="" class="admin-link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Livres</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="page-content">
+			{% block RightPage %}{% endblock %}
+		</div>
+	</div>
+{% endblock %}
