@@ -1,0 +1,34 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/library/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+	<h1>Gestion des bibliothèques (armoires)</h1>
+	<div class="library-container">
+		<table class="library-table">
+			<thead>
+				<tr class="library-row">
+					<th>Nom</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for library in libraries %}
+					<tr class="library-row">
+						<td class="library-cell">
+							<a href="{{path('library_detail',{id:library.id})}}" class="lib-link">{{library.name}}</a>
+						</td>
+						<td class="library-cell-action">
+							<a href="{{ path('library_update', {id:library.id})}}" class="btn btn-secondary">modifier</a>
+							<form action="{{ path('library_delete', {id:library.id}) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <button class="btn btn-warning">Supprimer</button>
+                            </form>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
