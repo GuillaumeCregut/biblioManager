@@ -3,9 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Library;
+use App\Form\LibraryType;
 use App\Repository\LibraryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -29,9 +31,20 @@ class LibraryController extends AbstractController
         ]);
     }
     #[Route('/update/{id}', name: 'update', methods: ['GET', 'POST'])]
-    public function update(Library $library, EntityManagerInterface $em): Response
+    public function update(Library $library, Request $request, EntityManagerInterface $em): Response
     {
-        dd($library);
+        $form = $this->createForm(LibraryType::class, $library);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($library);
+            $em->flush();
+            $this->addFlash('success', 'La bibliothèque a bien été modifiée');
+            return $this->redirectToRoute('library_index');
+        }
+        return $this->render('admin/library/update.html.twig', [
+            'form' => $form,
+            'library' => $library,
+        ]);
     }
     #[Route('/delete/{id}', name: 'delete', methods: ['POST', 'DELETE'])]
     public function delete(Library $library, EntityManagerInterface $em): Response
