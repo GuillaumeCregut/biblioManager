@@ -1,0 +1,15 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/theme/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+   <a href="{{ path('theme_index') }}" class="btn btn-secondary">Retour</a>
+    <h1>Modifier le thème</h1>
+
+    {{ include('admin/theme/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+
+ 
+
+    {{ include('admin/theme/_delete_form.html.twig') }}
+{% endblock %}
