@@ -43,6 +43,7 @@ h1 {
     border-style: none;
     font-weight: bold;
     font-size: 1rem;
+    font-family: var(--primary-font);
     border-radius: .25rem;
     padding: .375rem .75rem;
     border: 1px solid transparent;
@@ -51,6 +52,18 @@ h1 {
 .btn-primary {
     border-color: #0b5ed7;
     background-color: #0b5ed7;
+    color : white;
+}
+
+.btn-secondary {
+    border-color: #32ae04;
+    background-color: #32ae04;
+    color : white;
+}
+
+.btn-warning {
+    border-color: #d82424;
+    background-color: #d82424;
     color : white;
 }
 
@@ -64,4 +77,11 @@ h1 {
     color: white;
     background-color: red;
 
+}
+
+@media  screen and (max-width: 768px) {
+    .btn {
+        font-size: 0.5rem;
+        padding: .225rem .50rem;
+    }
 }
