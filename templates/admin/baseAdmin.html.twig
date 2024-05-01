@@ -38,6 +38,13 @@
 			</nav>
 		</div>
 		<div class="page-content">
+			{% for label, messages in app.flashes(['success','warning']) %}
+			    {% for message in messages %}
+				<div class="flash-notice flash-{{ label }}">
+					{{ message }}
+				</div>
+				{% endfor %}
+			{% endfor %}
 			{% block RightPage %}{% endblock %}
 		</div>
 	</div>
