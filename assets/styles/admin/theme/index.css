@@ -1,0 +1,54 @@
+h1 {
+    text-align: center;
+}
+
+.table {
+    width: 50%;
+    margin: 0 auto;
+}
+
+td,
+th {
+    text-align: left;
+}
+
+.theme-name-col {
+    width: 20%;
+}
+
+.theme-action {
+    text-align: center;
+}
+
+.theme-action-col {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px
+}
+
+.book-theme-container {
+    width: 80%;
+    margin: 10px 2rem;
+}
+
+.book-theme-list {
+    margin-top: 1rem;
+}
+
+.book-theme-item {
+    margin: 0.8rem 0;
+    margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .table {
+        width: 90%;
+    }
+
+    .theme-action-col {
+        gap: 0;
+    }
+}
