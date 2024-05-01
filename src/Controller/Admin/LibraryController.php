@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Library;
+use App\Entity\Shelf;
 use App\Form\LibraryType;
+use App\Form\NameType;
 use App\Repository\LibraryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,11 +25,26 @@ class LibraryController extends AbstractController
         ]);
     }
 
-    #[Route('/detail/{id}', name: 'detail', methods: 'GET')]
-    public function detail(Library $library): Response
-    {
+    #[Route('/detail/{id}', name: 'detail', methods: ['GET', 'POST'])]
+    public function detail(
+        Library $library,
+        Request $request,
+        EntityManagerInterface $em
+    ): Response {
+        $form = $this->createForm(NameType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $shelf = new Shelf();
+            $shelf->setName($form->get('name')->getData());
+            $shelf->setLibrary($library);
+            $em->persist($shelf);
+            $em->flush();
+            $this->addFlash('success', "L'étagère a bien été ajoutée");
+            return $this->redirectToRoute('library_detail', ['id' => $library->getId()]);
+        }
         return $this->render('admin/library/detail.html.twig', [
             'library' => $library,
+            'form'  => $form
         ]);
     }
     #[Route('/update/{id}', name: 'update', methods: ['GET', 'POST'])]

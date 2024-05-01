@@ -6,7 +6,6 @@
 {% block RightPage %}
 	<h1>Détail de la bibliothèque
 		{{ library.name }}</h1>
-    <p class="back-nav"><a href="{{ path('library_index')}}" class="btn btn-primary">Retour</a></p>
 	<div class="shelves-container">
 		<table class="shelves">
 			<caption class="shelves-caption">Etagères</caption>
@@ -32,4 +31,10 @@
 			</tbody>
 		</thead>
 	</table>
-</div>{% endblock %}
+</div>
+<p class="add-shelf">Ajouter une étagère</p>
+{{form_start(form)}}
+{{ form_row(form.name) }}
+<button class="btn btn-primary">Ajouter</button>
+{{ form_end(form) }}
+{% endblock %}
