@@ -22,13 +22,20 @@
 						<td class="library-cell-action">
 							<a href="{{ path('library_update', {id:library.id})}}" class="btn btn-secondary">modifier</a>
 							<form action="{{ path('library_delete', {id:library.id}) }}" method="POST">
-                            <input type="hidden" name="_method" value="DELETE" />
-                            <button class="btn btn-warning">Supprimer</button>
-                            </form>
+								<input type="hidden" name="_method" value="DELETE"/>
+								<button class="btn btn-warning">Supprimer</button>
+							</form>
 						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
+	</div>
+	<div class="add-library">
+		<p>Ajouter une armoire</p>
+		{{form_start(form)}}
+		{{ form_row(form.name) }}
+		<button class="btn btn-primary">Ajouter</button>
+		{{ form_end(form) }}
 	</div>
 {% endblock %}

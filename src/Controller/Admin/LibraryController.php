@@ -17,11 +17,25 @@ use Symfony\Component\Routing\Attribute\Route;
 class LibraryController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(LibraryRepository $lib): Response
-    {
+    public function index(
+        LibraryRepository $lib,
+        Request $request,
+        EntityManagerInterface $em
+    ): Response {
+        $form = $this->createForm(NameType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $library = new Library();
+            $library->setName($form->get('name')->getData());
+            $em->persist($library);
+            $em->flush();
+            $this->addFlash('success', "La bibliothèque a bien été ajoutée");
+            return $this->redirectToRoute('library_index');
+        }
         $libraries = $lib->findAll();
         return $this->render('admin/library/index.html.twig', [
             'libraries' => $libraries,
+            'form' => $form
         ]);
     }
 
@@ -66,6 +80,9 @@ class LibraryController extends AbstractController
     #[Route('/delete/{id}', name: 'delete', methods: ['POST', 'DELETE'])]
     public function delete(Library $library, EntityManagerInterface $em): Response
     {
-        dd($library);
+        $em->remove($library);
+        $em->flush();
+        $this->addFlash('success', 'La bibliothèque a bien été supprimée');
+        return $this->redirectToRoute('library_index');
     }
 }
