@@ -9,9 +9,9 @@
 			<li class="link_item">
 				<a class="link  {% if app.request.attributes.get('_route')=='search_index' %}active-link{%endif%}" href="">Rechercher</a>
 			</li>
-			{% if app.user and app.user.admin %}
+			{% if app.user %}
 			<li class="link_item">
-				<a class="link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{%endif%}" href="">Admin</a>
+				<a class="link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{%endif%}" href="{{ path('admin_index') }}">Admin</a>
 			</li>
 			{% endif %}
 		</ul>
