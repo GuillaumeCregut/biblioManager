@@ -1,0 +1,40 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/library/detail.css')}}">
+{% endblock %}
+{% block RightPage %}
+	<h1>Détail de la bibliothèque
+		{{ library.name }}</h1>
+	<div class="shelves-container">
+		<table class="shelves">
+			<caption class="shelves-caption">Etagères</caption>
+			<thead>
+				<tr>
+					<th scope="col" class="shelf-name-col">Nom</th>
+					<th scope="col" class="shelf-books">Livres</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for shelf in library.shelves %}
+					<tr>
+						<td class="shelf-name-col">{{shelf.name}}</td>
+						<td class="shelf-books">
+							<ul class="book-list">
+								{% for book in shelf.books %}
+									<li class="shelf-book">{{book.title}}</li>
+								{% endfor %}
+							</ul>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</thead>
+	</table>
+</div>
+<p class="add-shelf">Ajouter une étagère</p>
+{{form_start(form)}}
+{{ form_row(form.name) }}
+<button class="btn btn-primary">Ajouter</button>
+{{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,50 @@
+h1 {
+    text-align: center;
+}
+
+.library-table {
+    width: 90%;
+    margin: 0 auto;
+}
+
+tr, th {
+    text-align: left;
+}
+
+td {
+    padding: 10px 0;
+}
+
+.library-cell {
+    width: 150px;
+}
+
+.library-cell-action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+@media  screen and (max-width: 768px) {
+    .library-container {
+        font-size: 0.8rem;
+    }
+
+    .library-row, th {
+        text-align: center;
+        border-bottom: 1px solid white;
+    }
+    
+    td {
+        padding: 5px 0;
+    }
+
+    .library-cell {
+        width: 100px;
+    }
+
+    .library-cell-action {
+        padding: 5px 0;
+        gap: 0;
+    }
+}
