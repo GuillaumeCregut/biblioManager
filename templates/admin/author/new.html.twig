@@ -1,0 +1,12 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/author/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+    <a href="{{ path('author_index') }}" class="btn btn-secondary">Retour</a>
+    <h1>Ajouter un auteur</h1>
+
+    {{ include('admin/author/_form.html.twig') }}
+
+{% endblock %}

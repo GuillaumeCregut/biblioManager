@@ -23,7 +23,7 @@
 						<a href="" class="admin-link  {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Etagères</a>
 					</li>
 					<li class="admin-item">
-						<a href="" class="admin-link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Auteurs</a>
+						<a href="{{ path('author_index')}}" class="admin-link {% if app.request.attributes.get('_route')=='author_index' %}active-link{% endif %}">Auteurs</a>
 					</li>
 					<li class="admin-item">
 						<a href="{{ path('editor_index')}}" class="admin-link {% if app.request.attributes.get('_route')=='editor_index' %}active-link{% endif %}">Editeurs</a>
