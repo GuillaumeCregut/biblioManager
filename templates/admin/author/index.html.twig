@@ -1,0 +1,33 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/author/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+    <h1>Auteurs</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th class="author-head-action-col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for author in authors %}
+            <tr>
+                <td class="author-name-col">{{ author.name }}</td>
+                <td class="author-action-col">
+                    <a href="{{ path('author_show', {'id': author.id}) }}" class="btn btn-primary">Détails</a>
+                    <a href="{{ path('author_edit', {'id': author.id}) }}" class="btn btn-secondary">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun résultats</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('author_new') }}" class="btn btn-primary">Ajouter</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+.author-book-container {
+    width: 80%;
+    margin: 10px 2rem;
+}
+
+.author-book-list {
+    margin-top: 1rem;
+}
+
+.author-book-item {
+    margin: 0.8rem 0;
+    margin-left: 0.5rem;
+}

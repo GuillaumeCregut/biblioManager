@@ -1,0 +1,21 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/author/index.css')}}">
+	<link rel="stylesheet" href="{{ asset('styles/admin/author/detail.css')}}">
+{% endblock %}
+{% block RightPage %}
+    <a href="{{ path('author_index') }}" class="btn btn-secondary">Retour</a>
+    <h1>Détail de l'auteur {{author.name}}</h1>
+    <div class="author-book-container">
+    <p>Livres de l'auteur :</p>
+    <ul class="author-book-list">
+    {% for book in author.books %}
+        <li class="author-book-item">{{ book.title }}</li>
+    {% endfor %}
+    </ul>
+    </div>
+    <a href="{{ path('author_edit', {'id': author.id}) }}" class="btn btn-primary">Modifier</a>
+
+    {{ include('admin/author/_delete_form.html.twig') }}
+{% endblock %}
