@@ -10,14 +10,14 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th>actions</th>
+                <th class="editor-head-action-col">actions</th>
             </tr>
         </thead>
         <tbody>
         {% for editor in editors %}
             <tr>
-                <td>{{ editor.name }}</td>
-                <td>
+                <td class="editor-name-col">{{ editor.name }}</td>
+                <td class="editor-action-col">
                     <a href="{{ path('editor_show', {'id': editor.id}) }}" class="btn btn-primary">Détails</a>
                     <a href="{{ path('editor_edit', {'id': editor.id}) }}" class="btn btn-secondary">Modifier</a>
                 </td>

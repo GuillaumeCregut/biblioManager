@@ -1,3 +1,60 @@
 h1 {
     text-align: center;
 }
+
+.table {
+    width: 50%;
+    margin: 0 auto;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 10px 0;
+}
+
+.editor-head-action-col {
+    text-align: center;
+}
+
+.editor-action-col {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.editor-name-col {
+    width: 20%;
+}
+
+.editor-book-container {
+    width: 80%;
+    margin: 10px 2rem;
+}
+
+.editor-book-list {
+    margin-top: 1rem;
+}
+
+.editor-book-item {
+    margin: 0.8rem 0;
+    margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .table {
+        width: 90%;
+        font-size: 0.8rem;
+    }
+
+    .editor-name-col {
+        width: 30%;
+    }
+
+    .editor-action-col {
+        gap: 0;
+    }
+}
