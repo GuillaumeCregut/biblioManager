@@ -18,7 +18,7 @@
 			<tbody>
 				{% for shelf in library.shelves %}
 					<tr>
-						<td class="shelf-name-col">{{shelf.name}}</td>
+						<td class="shelf-name-col"><a href="{{path('shelf_detail',{id: shelf.id})}}" class="shelf-link">{{shelf.name}}</a></td>
 						<td class="shelf-books">
 							<ul class="book-list">
 								{% for book in shelf.books %}
