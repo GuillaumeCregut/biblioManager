@@ -1,0 +1,17 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/shelf/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+	<a href="{{path('shelf_detail', {id:shelf.id})}}" class="btn btn-secondary">Retour</a>
+	<h1>Modification de l'étagère
+		{{ shelf.name }}</h1>
+	{{ form_start(form) }}
+	{{ form_row(form.name) }}
+	<button class="btn btn-primary">Valider</button>
+	{{ form_end(form) }}
+	<p>
+		<a href="{{ path('library_index')}}" class="btn btn-secondary">Retour</a>
+	</p>
+{% endblock %}

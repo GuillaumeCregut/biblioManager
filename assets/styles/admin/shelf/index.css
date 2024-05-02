@@ -1,0 +1,29 @@
+h1 {
+    text-align: center;
+}
+
+.shelf-info-container {
+    margin-left: 3rem;
+    font-family: var(--primary-font);
+}
+
+.shelf-info {
+    margin: 1.5rem 0;
+}
+
+.shelf-info-value {
+    font-family: var(--title-font);
+}
+
+.shelf-book-list {
+    margin-left: 1rem;
+}
+
+.shelf-book-item {
+    margin: 0.5rem 0;
+}
+
+.shelf-btn-container {
+    display: flex;
+    gap: 1.5rem;
+}

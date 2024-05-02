@@ -1,0 +1,27 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/shelf/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+	<a href="{{path('library_detail', {id:shelf.library.id})}}" class="btn btn-secondary">Retour</a>
+	<h1>Détails de l'étagère : "{{shelf.name}}"</h1>
+	<div class="shelf-info-container">
+		<p class="shelf-info">Bibliothèque :
+			<span class="shelf-info-value">{{shelf.library.name}}</span>
+		</p>
+		<p class="shelf-info">Liste des livres sur l'étagère</p>
+		<ul class="shelf-book-list">
+			{% for book in shelf.books %}
+				<li class="shelf-book-item">{{book.title}}</li>
+			{% endfor %}
+		</ul>
+		<div class="shelf-btn-container">
+			<a href="{{ path('shelf_update', {id: shelf.id})}}" class="btn btn-primary">Modifier</a>
+			<form method="post" action="{{ path('shelf_delete', {'id': shelf.id}) }}" onsubmit="return confirm('Voulez vous supprimer cet item?');">
+				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ shelf.id) }}">
+				<button class="btn btn-warning">Supprimer</button>
+			</form>
+		</div>
+	</div>
+{% endblock %}
