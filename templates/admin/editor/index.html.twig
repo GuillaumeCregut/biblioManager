@@ -1,0 +1,34 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/editor/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+    <h1>Editeurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th class="editor-head-action-col">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for editor in editors %}
+            <tr>
+                <td class="editor-name-col">{{ editor.name }}</td>
+                <td class="editor-action-col">
+                    <a href="{{ path('editor_show', {'id': editor.id}) }}" class="btn btn-primary">Détails</a>
+                    <a href="{{ path('editor_edit', {'id': editor.id}) }}" class="btn btn-secondary">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucun élément trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('editor_new') }}" class="btn btn-primary">Ajouter</a>
+{% endblock %}

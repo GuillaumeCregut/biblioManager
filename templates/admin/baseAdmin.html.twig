@@ -26,7 +26,7 @@
 						<a href="" class="admin-link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Auteurs</a>
 					</li>
 					<li class="admin-item">
-						<a href="" class="admin-link {% if app.request.attributes.get('_route')=='admin_index' %}active-link{% endif %}">Editeurs</a>
+						<a href="{{ path('editor_index')}}" class="admin-link {% if app.request.attributes.get('_route')=='editor_index' %}active-link{% endif %}">Editeurs</a>
 					</li>
 					<li class="admin-item">
 						<a href="{{path('theme_index')}}" class="admin-link {% if app.request.attributes.get('_route')=='theme_index' %}active-link{% endif %}">Thèmes</a>

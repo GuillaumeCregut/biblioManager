@@ -10,17 +10,14 @@ h1 {
 td,
 th {
     text-align: left;
+    padding: 10px 0;
 }
 
-.theme-name-col {
-    width: 20%;
-}
-
-.theme-action {
+.editor-head-action-col {
     text-align: center;
 }
 
-.theme-action-col {
+.editor-action-col {
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -29,16 +26,20 @@ th {
     gap: 10px;
 }
 
-.book-theme-container {
+.editor-name-col {
+    width: 20%;
+}
+
+.editor-book-container {
     width: 80%;
     margin: 10px 2rem;
 }
 
-.book-theme-list {
+.editor-book-list {
     margin-top: 1rem;
 }
 
-.book-theme-item {
+.editor-book-item {
     margin: 0.8rem 0;
     margin-left: 0.5rem;
 }
@@ -46,9 +47,14 @@ th {
 @media screen and (max-width: 768px) {
     .table {
         width: 90%;
+        font-size: 0.8rem;
     }
 
-    .theme-action-col {
+    .editor-name-col {
+        width: 30%;
+    }
+
+    .editor-action-col {
         gap: 0;
     }
 }

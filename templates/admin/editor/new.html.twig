@@ -1,0 +1,13 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+{% block stylesheets %}
+	{{ parent()}}
+	<link rel="stylesheet" href="{{ asset('styles/admin/editor/index.css')}}">
+{% endblock %}
+{% block RightPage %}
+<a href="{{ path('editor_index') }}" class="btn btn-secondary">Retour</a>
+    <h1>Ajouter un éditeur</h1>
+
+    {{ include('admin/editor/_form.html.twig') }}
+
+    
+{% endblock %}
